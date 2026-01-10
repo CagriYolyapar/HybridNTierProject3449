@@ -1,0 +1,46 @@
+﻿@model List<Category>
+
+
+    <!-- page start-->
+    <section class="panel">
+        <header class="panel-heading">
+            Yeni Kategori eklemek icin <a asp-action="Create" asp-controller="Category">tıklayınız</a>
+        </header>
+        <div class="panel-body">
+            <div class="adv-table">
+                <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                    <thead>
+                        <tr>
+                            <th>Kategori Id</th>
+                            <th>Kategori ismi</th>
+                            <th class="hidden-phone">Açıklama</th>
+                            <th class="hidden-phone">Veri Durumu</th>
+                            <th class="hidden-phone">Pasife çek</th>
+                            <th class="hidden-phone">Güncelle</th>
+                            <th class="hidden-phone">Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach(Category item in Model)
+                        {
+                       <tr class="gradeX">
+                            <td>@item.Id</td>
+                            <td> @item.CategoryName   </td>
+                            <td class="hidden-phone">@item.Description</td>
+                            <td class="center hidden-phone">@item.Status</td>
+                            <td class="center hidden-phone" > <a asp-controller="Category" asp-action="Pacify" asp-route-id="@item.Id" class="btn btn-warning">Pasife çek </a>  </td>
+                            <td class="center hidden-phone" > <a asp-controller="Category" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning">Güncelle </a>  </td>
+                            <td class="center hidden-phone" > <a asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil </a>  </td>
+                        
+                        </tr>
+                        }
+                       
+                       
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </section>
+    <!-- page end-->

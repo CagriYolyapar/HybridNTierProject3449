@@ -46,7 +46,14 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "Admin",
+    pattern: "{area}/{controller=Category}/{action=Index}/{id?}"
+);
+
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=SignIn}/{id?}");
 
 app.Run();
+
+//Todo : Register ve SignIn işlemleri yapıldı. Bir sonraki adım Admin Areası, Advanced DataTable (Yönetim Paneli tarafında) tarafında Category ve Product ekleme işlemleri ve Product'resim yüklenmesi olacak...
